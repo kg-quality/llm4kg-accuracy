@@ -105,10 +105,10 @@ def main():
     if args.usePreds:  # consider LLM predictions -- used to stratify KG facts
         preds = {}
         # get LLM prediction files
-        predFs = glob('./predictions/' + args.dataset + '/**/preds.json')
+        predFs = glob('./predictions/' + args.dataset + '/full/**/preds.json')
         for predF in predFs:  # iterate over prediction files and store LLM preds
             with open(predF, 'r') as f:
-                preds[predF.split('/')[3]] = json.load(f)
+                preds[predF.split('/')[4]] = json.load(f)
         # sanity check
         assert len(preds) != 0
     else:  # ignore LLM predictions
