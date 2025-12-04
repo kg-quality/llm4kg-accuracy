@@ -48,7 +48,7 @@ def format_examples(example_list, dataset):
     # format the examples as in the prompt config
     formatted_exs = '\n### Examples\n'
     for ex in example_list:
-        formatted_exs += facts['format'].rstrip().format(
+        formatted_exs += facts['format'][2:].rstrip().format(
             s=ex['fact']['s'],
             p=ex['fact']['p'] if dataset == 'NELL' else ex['fact']['p'][dataset],  # NELL doesn't have the inner dict for predicate
             o=ex['fact']['o'],
@@ -57,12 +57,13 @@ def format_examples(example_list, dataset):
     return formatted_exs.replace('{', '{{').replace('}', '}}')
 
 
-def compose_prompts(is_dbpedia, **kwargs):
+def compose_prompts(is_dbpedia, dataset, max_retries=5):
     """
     Compose the prompts associated w/ the KG facts
 
     :param is_dbpedia: True if the chosen dataset is DBPEDIA, False otherwise
-    :param kwargs: keyword arguments
+    :param dataset: the target dataset
+    :param max_retries: maximum number of LLM retries
     :return: the prompts composed for the KG facts
     """
 
@@ -75,8 +76,8 @@ def compose_prompts(is_dbpedia, **kwargs):
     responses = '"T" (true), or "F" (false)'
 
     # example formatting
-    example_list = fewshot_examples['NELL'] if kwargs['dataset'] == 'NELL' else fewshot_examples['OTHER']
-    formatted_examples = format_examples(example_list, kwargs['dataset'])
+    example_list = fewshot_examples['NELL'] if dataset == 'NELL' else fewshot_examples['OTHER']
+    formatted_examples = format_examples(example_list, dataset)
 
     # system prompt composition
     system = (
@@ -102,7 +103,7 @@ def compose_prompts(is_dbpedia, **kwargs):
 
     # gather the prompt components together
     prompts = (
-        system.format(max_attempts=kwargs['max_retries'], judgments=labels, dbp_info=dbp_info),
+        system.format(max_attempts=max_retries, judgments=labels, dbp_info=dbp_info),
         user,
         retry.format(responses=responses, dbp=dbp)
     )

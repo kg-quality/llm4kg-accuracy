@@ -25,15 +25,10 @@ async def verify(args):
     # set seed
     random.seed(args.seed)
 
-    # get the prompts
+    # check if considered dataset is DBPEDIA
     is_dbpedia = (args.dataset == 'DBPEDIA')
-    full_kwargs = {
-        'max_retries': args.max_retries,
-        'dataset': args.dataset
-    }
-
     # compose prompt templates
-    system_prompt, user_prompt, retry_prompt = compose_prompts(is_dbpedia, **full_kwargs)
+    system_prompt, user_prompt, retry_prompt = compose_prompts(is_dbpedia, args.dataset)
 
     # set the path to dataset
     if 'YAGO4.5' in args.dataset:  # YAGO4.5 comes in three versions -- preprocess string to extract the target version
