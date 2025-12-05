@@ -1,0 +1,11 @@
+aiolimiter==1.2.1
+azure_storage==0.37.0
+lightrdf==0.4.0
+numpy==2.3.5
+pandas==2.3.3
+polars==1.35.2
+scikit_learn==1.7.2
+scipy==1.16.3
+torch==2.2.2
+tqdm==4.67.1
+transformers==4.50.3

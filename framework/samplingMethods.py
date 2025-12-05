@@ -1,6 +1,5 @@
 import random
 import numpy as np
-import networkx as ntx
 
 from tqdm import tqdm
 from scipy import stats, optimize

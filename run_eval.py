@@ -6,7 +6,6 @@ import json
 import os
 
 from glob import glob
-from scipy import stats
 from framework import samplingMethods
 
 parser = argparse.ArgumentParser()
@@ -16,7 +15,7 @@ parser = argparse.ArgumentParser()
 ################################
 
 parser.add_argument('--dataset', default='NELL', choices=['DBPEDIA', 'FACTBENCH', 'NELL', 'YAGO4.5'], help='Target dataset.')
-parser.add_argument('--accuracyLevel', default=0.25, choices=[0.25, 0.5, 0.75], type=float, help='Desired KG accuracy level. Use only when working with YAGO4.5 datasets.')
+parser.add_argument('--accLevel', default=0.25, choices=[0.25, 0.5, 0.75], type=float, help='Desired KG accuracy level. Use only when working with YAGO4.5 datasets.')
 
 ###############################
 ###### Method parameters ######
@@ -87,7 +86,7 @@ def main():
     # set the KG dataset path
     dataset_path = f'./dataset/{args.dataset}'
     if args.dataset == 'YAGO4.5':  # specify accuracy level to generate YAGO-{HQ, MQ, LQ}
-        dataset_path += f'/{args.accuracyLevel}'
+        dataset_path += f'/{args.accLevel}'
 
     # load target KG dataset
     print(f'Loading {args.dataset} dataset at {dataset_path}...')

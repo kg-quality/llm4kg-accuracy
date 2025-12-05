@@ -11,7 +11,7 @@ from lightrdf import Regex
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--accuracyLevel", default=0.25, choices=[0.25, 0.5, 0.75], type=float)
+parser.add_argument("--accLevel", default=0.25, choices=[0.25, 0.5, 0.75], type=float)
 parser.add_argument("--inputYago", default="./raw/yago-facts.ttl", type=str)
 parser.add_argument("--outputRoot", default="./", type=str)
 args = parser.parse_args()
@@ -211,7 +211,7 @@ def main():
     if not os.path.exists(filtered_csv):
         filter_yago(args.inputYago, filtered_csv)
 
-    generate_noisy_kg(raw_csv=filtered_csv, output_root=args.outputRoot, acc_level=args.accuracyLevel)
+    generate_noisy_kg(raw_csv=filtered_csv, output_root=args.outputRoot, acc_level=args.accLevel)
 
 
 if __name__ == "__main__":
