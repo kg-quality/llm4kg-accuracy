@@ -91,7 +91,7 @@ def main():
 
     # load target KG dataset
     print(f'Loading {args.dataset} dataset at {dataset_path}...')
-    with open('./dataset/' + args.dataset + '/data/kg.json', 'r') as f:
+    with open(dataset_path + '/data/kg.json', 'r') as f:
         id2triple = json.load(f)
     print(f'Dataset {args.dataset} at {dataset_path} loaded!')
 
@@ -99,7 +99,7 @@ def main():
     kg = list(id2triple.items())
 
     # load KG ground truth
-    with open('./dataset/' + args.dataset + '/data/gt.json', 'r') as f:  # get ground truth
+    with open(dataset_path + '/data/gt.json', 'r') as f:  # get ground truth
         gt = json.load(f)
 
     if args.usePreds:  # consider LLM predictions -- used to stratify KG facts
