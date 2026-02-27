@@ -86,5 +86,8 @@ and assess the performance of distilled models as direct accuracy estimators wit
 python model_eval.py --dataset YAGO4.5 --accLevel {0.75|0.5|0.25}
 ```
 
-### Template Prompts
-Template prompts used for LLM fact verification are available in ```/template-prompts```.
+## Template Prompts
+Template prompts and few-shot examples used for LLM fact verification are available in ```/template-prompts```.
+
+## Extra Experiments
+Extra experiments reporting LLMs error analysis, sampling-based accuracy estimates, as well as ablation study and variance analysis are available in the ```/extra-experiments/``` folder. These analyses are summarized in the main text and presented here in full due to space constraints.
