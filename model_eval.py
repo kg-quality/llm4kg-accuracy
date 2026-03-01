@@ -48,9 +48,13 @@ def main():
         # accuracy estimate
         print(f'Model accuracy estimate: mu={sum(y_pred)/len(y_pred):.2f}')
         # metrics
+        cm = confusion_matrix(y_true, y_pred, labels=[0, 1])
+        tn, fp, fn, tp = cm.ravel()
+        sensitivity = tp/(tp + fn)
+        specificity = tn/(tn + fp)
         bacc = balanced_accuracy_score(y_true, y_pred)
         f1 = f1_score(y_true, y_pred, average='macro')
-        print(f'Balanced Accuracy: {bacc:.2f}, Macro F1: {f1:.2f}')
+        print(f'Sensitivity: {sensitivity:.2f} Specificity: {specificity:.2f} Balanced Accuracy: {bacc:.2f}, Macro F1: {f1:.2f}')
         print('###########')
 
 
