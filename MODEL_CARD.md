@@ -14,7 +14,7 @@
 | License | MIT (see LICENSE file) |
 | Repository and DOI | https://github.com/kg-quality/llm4kg-accuracy (no Zenodo DOI) |
 | Release date | 2 December 2025 (last update 15 May 2026) |
-| Related task or deliverable | |
+| Related task or deliverable | T3.2 |
 | How to cite | S. Marchesin, M. Ceccarello and G. Silvello. LLMs as Stratification Signals for KG Accuracy Evaluation. PVLDB 19(9): 2005-2018, 2026. doi:10.14778/3819518.3819530 |
 
 ## 2. Intended use
