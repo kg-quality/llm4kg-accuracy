@@ -1,3 +1,6 @@
+> **Research use only. Not a medical device.**
+> This software was developed in the HEREDITARY project as a research prototype. It has not been assessed or certified under the EU Medical Device Regulation (EU) 2017/745. It must not be used to diagnose, treat, monitor or make any other decision about individual patients.
+
 # LLMs as Stratification Signals for KG Accuracy Evaluation
 Knowledge Graph (KG) accuracy assessment is essential for ensuring data quality in downstream applications, yet remains prohibitively expensive due to annotation costs and scale. 
 Large Language Models (LLMs), having been trained on very large corpora spanning a wide variety of facts, seem ideal to get access to cheap fact validation. However, their inherent hallucinations and knowledge gaps render them unreliable as direct accuracy estimators.
@@ -91,3 +94,24 @@ Template prompts and few-shot examples used for LLM fact verification are availa
 
 ## Extra Experiments
 Extra experiments reporting LLMs error analysis, sampling-based accuracy estimates, as well as ablation study and variance analysis are available in the ```/extra-experiments/``` folder. These analyses are summarized in the main text and presented here in full due to space constraints.
+
+## Acknowledgments
+
+The work was supported by the HEREDITARY project, as part of the EU Horizon Europe program under Grant Agreement 101137074.
+
+## Reference
+
+If you use or extend our work, please cite the following:
+
+```
+@article{marchesin_etal-vldb2026,
+  title = {LLMs as Stratification Signals for KG Accuracy Evaluation},
+  author = {S. Marchesin and M. Ceccarello and G. Silvello},
+  journal = {Proc. {VLDB} Endow.},
+  volume = {19},
+  number = {9},
+  pages = {2005--2018},
+  year = {2026},
+  doi = {10.14778/3819518.3819530}
+}
+```
